@@ -143,8 +143,8 @@
         if (!url) return window.location.href = window.location.href;
         url = trim(url);
         if (/^http[s]*:\/\/.*?$/i.test(url)) return window.location.href = url;
-        let pat = new RegExp('^/' + creatoo.sp + '/web(/.*?)$', 'i');
-        let m=pat.exec(url);
+        var pat = new RegExp('^/' + creatoo.sp + '/web(/.*?)$', 'i');
+        var m=pat.exec(url);
         if(!m||m.length<2) {
             window.location.href = creatoo.domain + url;
         } else {
@@ -158,11 +158,7 @@
     }
 
     var dialog=function(title, body, cb) {
-        let content = `
-        <div class="tishiContent">
-            <div class="wenzi">` + body + `</div>
-        </div>
-    `;
+        var content = '<div class="tishiContent"> <div class="wenzi">' + body + '</div></div>';
         layer.open({
             type: 1,
             title: [title],
@@ -473,9 +469,9 @@
         var args = [];
         [].push.apply(args, arguments);
         var len = args.length;
-        var str = String(f).replace(formatRegExp, function (x) {
+        var str = f.replace(formatRegExp, function (x) {
             if (i >= len) return x;
-            return String(args[i++]);
+            return args[i++];
         });
         return str;
     };

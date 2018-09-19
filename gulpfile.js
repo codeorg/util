@@ -5,17 +5,17 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 
 gulp.task('clean', function() {
-    gulp.src('dest/*')
+   return gulp.src('dist')
         .pipe(clean())
 })
 
 gulp.task('min', function () {
-    gulp.src(['src/lodash.js','src/moment.js','src/co-util.js'])
+    return gulp.src(['src/lodash.js','src/moment.js','src/co-util.js'])
         .pipe(concat('co-util.js'))
-        .pipe(minify())
-        .pipe(gulp.dest('dest'));
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', ['clean'], function(){
-    gulp.start('min');
+    return gulp.start('min');
 });
