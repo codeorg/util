@@ -14,7 +14,7 @@
     }
 })('util', this, function () {
     'use strict';
-    var version = '1.0.75';
+    var version = '1.0.76';
 
     //----------ls　开始　------------------------------
     var ls = (function () {
